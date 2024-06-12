@@ -19,7 +19,7 @@ export const CalendarPage = () => {
 
   const eventStyleGetter = ( event, start, end, isSelected ) => {
 
-    const isMyEvent = ( user.uid === event.user._id ) || ( user.uid === event.user.id )
+    const isMyEvent = ( user.uid === event.user._id || user.uid === event.user.id )
   
     const style = {
       backgroundColor: isMyEvent ? '#347CF7' : '#465660',
@@ -48,6 +48,7 @@ export const CalendarPage = () => {
   const onViewChanged = ( event ) => {
     localStorage.setItem('lastView', event );
     setLastView( event )
+    console.log(event.user.id);
   }
 
   useEffect(() => {
